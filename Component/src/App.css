@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  border: solid;
+}
+
+div {
+  display: inline-block;
+  margin-bottom: 5%;
+  margin-left: 0.8%;
+}
