@@ -1,0 +1,20 @@
+.App {
+  border: solid;
+  width: 70%;
+  text-align: center;
+}
+
+
+div {
+  display: inline-block;
+  margin-bottom: 5%;
+  margin-left: 0.8%;
+}
+
+
+.Student{
+  display: inline-block;
+  border: 1px solid;
+  width: 25%;
+  margin-right: 5%;
+}
