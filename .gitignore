@@ -2,3 +2,6 @@
 ./intro_to_react/node_modules
 ./JSX/node_modules
 ./Props/node_modules
+./Basic_CSS/node_modules
+./Ternary_Operator_And_List/node_modules
+./UseState_Hook/node_modules
