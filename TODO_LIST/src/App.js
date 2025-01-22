@@ -64,6 +64,7 @@ const TodoList = (Props) => {
   };
 
   const Edit = (id) => {
+    Props.setCurrentEdit (!Props.CurrentEdit);
     Props.setEditId(id)
 
     const NewList = Props.List.map((L) => {
@@ -83,17 +84,16 @@ const TodoList = (Props) => {
   const Save = () => {
     const NewList = Props.List.map((L) => {
       if (L.Id === Props.EditId) {
-        return { ...L, name: Props.EditValue, Edit: !L.Edit };
+        return { ...L, name: Props.EditValue};
       }
       return L;
     });
 
     Props.setList(NewList);
+    Props.setCurrentEdit (!Props.CurrentEdit);
   }
 
-  const T=Props.List.some((L) => L.Edit === true)
-
-    Props.setCurrentEdit (T)
+    
    
 
   return (
