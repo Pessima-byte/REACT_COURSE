@@ -64,17 +64,24 @@ const TodoList = (Props) => {
   };
 
   const Edit = (id) => {
-    Props.setCurrentEdit (!Props.CurrentEdit);
+    Props.setCurrentEdit (true);
     Props.setEditId(id)
 
-    const NewList = Props.List.map((L) => {
+    let NewList;
+    let update;
+
+     NewList = Props.List.map((L) => {
+        return { ...L, Edit: false };
+    });
+
+    update = NewList.map((L) => {
       if (L.Id === id) {
         return { ...L, Edit: !L.status };
       }
       return L;
     });
 
-    Props.setList(NewList);
+    Props.setList(update);
   }
 
   const EditValue = (e) =>{
@@ -84,7 +91,7 @@ const TodoList = (Props) => {
   const Save = () => {
     const NewList = Props.List.map((L) => {
       if (L.Id === Props.EditId) {
-        return { ...L, name: Props.EditValue};
+        return { ...L, name: Props.EditValue, Edit: false};
       }
       return L;
     });
@@ -114,7 +121,7 @@ const TodoList = (Props) => {
             <button onClick={() => RemoveList(Lists.Id)}>Remove</button>{" "}
             <button onClick={()=>{
               Edit(Lists.Id);
-            }}>Edit</button>
+            }}  style={{backgroundColor: Lists.Edit && "yellow"}}>Edit</button>
             <button
               onClick={() => UpdateList(Lists.Id)}
               style={{ backgroundColor: Lists.status ? "green" : "red" }}
